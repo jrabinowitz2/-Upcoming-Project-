@@ -1,4 +1,4 @@
-# MINESWEEPER R.E. CHALLENGE
+# MINESWEEPER: REVERSE & EXPLOIT CHALLENGE
 
 As an exercise in reverse engineering I decided to reverse the version of Minesweeper that comes with Windows XP. My goal was to learn enough about the game to build some sort of cheat code or 'trainer' program (manipulate the timer, infinite flags, etc.). However, when I was finished reversing the relevant code chunks I came across a post online where someone suggested a challenge: try to modify the binary so that the game always starts with the mines already flagged. The post also claimed there is an elegant solution to this problem which only requires modifying **ONE LINE OF CODE**.
 
