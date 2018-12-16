@@ -20,7 +20,7 @@ An ASLR-enabled module will have an optional header with the *IMAGE_DLLCHARACTER
 
 My first move in the debugger was to look at the names of the import functions and find one that might be used to draw the board. I quickly noticed the GDI32 library, which is used to interact with graphics device drivers. Within the GDI32 functions one called *"BitBlt"* looked promising. A quick look at the Microsoft docs yields this description:
 
->"The BitBlt function performs a bit-block transfer of the color data corresponding to a >rectangle of pixels from the specified source device context into a destination device >context."
+>"The BitBlt function performs a bit-block transfer of the color data corresponding to a rectangle of pixels from the specified source device context into a destination device context."
 
 Perfect. I found where this function was referenced, and noticed it was within a nested loop. Now it was obvious this part of the code handles drawing the game tiles; looking at the BitBlt function I could see the game height and width on the stack, and tracing these variables further back in the code I could see they came from memory locations x1005338 and x1005334, respectively. I confirmed these values, along with the number of mines/flags (which was nearby), by customizing them and observing the changes in memory.
 
